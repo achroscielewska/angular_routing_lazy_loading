@@ -6,6 +6,7 @@ Description TO_DO
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
 
 * [Angular Material](https://material.angular.io/)
+* [normalize.scss v0.1.0](https://www.npmjs.com/package/normalize.scss)
 
 ## Angular Material
 In `app/modules/shared` angular-material.imports.ts was added with shared angular material imports.
