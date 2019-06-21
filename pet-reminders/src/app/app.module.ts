@@ -13,7 +13,7 @@ import { AppSharedAngularMaterial } from './modules/shared/angular-material.impo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AppSharedAngularMaterial
+    AppSharedAngularMaterial,
   ],
   providers: [],
   bootstrap: [AppComponent]

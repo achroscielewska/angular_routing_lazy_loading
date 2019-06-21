@@ -1,4 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$roboto: mat-typography-config($font-family: 'Roboto');
+@include mat-select-typography($roboto);
+
 @import "./app/utilities/variables";
 
 html,
@@ -13,26 +20,41 @@ body {
 }
 
 .app-header {
-  background: $basic-color;
-  color: $white-color;
+  background: $accent-color;
+  height: 55px;
   .app-header-content {
+    padding: 10px;
     .app-header-title {
-      padding: 10px;
-      font-size: 18px;
+      float: left;
+      line-height: 36px;
+    }
+    .app-header-btns {
+      float: right;
     }
   }
 }
 
+.app-primary-btn {
+  background: $primary-color;
+  color: $basic-color;
+}
+
 @media (min-width: $break-small) {
+  .app-header-title {
+    font-size: 18px;
+  }
 }
 @media (min-width: $break-medium) {
+  .app-header-title {
+    font-size: 18px;
+  }
 }
 @media (min-width: $break-large) {
   .app-header-content {
     width: 50%;
     margin: 0 auto;
     .app-header-title {
-      font-size: 32px;
+      font-size: 24px;
     }
   }
 }
@@ -41,7 +63,7 @@ body {
     width: 50%;
     margin: 0 auto;
     .app-header-title {
-      font-size: 32px;
+      font-size: 24px;
     }
   }
 }
