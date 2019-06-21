@@ -30,6 +30,8 @@ In styles.scss
 @media (min-width: $break-extra-large) {}
 ```
 
+[color pallet](http://color.romanuke.com/tsvetovaya-palitra-2273/)
+
 
 ## Development server
 

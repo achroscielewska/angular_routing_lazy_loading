@@ -1,16 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./app/utilities/variables";
 
-html, body { height: 100%; }
+html,
 body {
-    margin: 0;
-    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-    text-align: center;
-    font-size: $font-size;
+  height: 100%;
+}
+body {
+  margin: 0;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  font-size: $font-size;
+  color: $basic-color;
 }
 
+.app-header {
+  background: $basic-color;
+  color: $white-color;
+  .app-header-content {
+    .app-header-title {
+      padding: 10px;
+      font-size: 18px;
+    }
+  }
+}
 
-@media (min-width: $break-small) {}
-@media (min-width: $break-medium) {}
-@media (min-width: $break-large) {}
-@media (min-width: $break-extra-large) {}
+@media (min-width: $break-small) {
+}
+@media (min-width: $break-medium) {
+}
+@media (min-width: $break-large) {
+  .app-header-content {
+    width: 50%;
+    margin: 0 auto;
+    .app-header-title {
+      font-size: 32px;
+    }
+  }
+}
+@media (min-width: $break-extra-large) {
+  .app-header-content {
+    width: 50%;
+    margin: 0 auto;
+    .app-header-title {
+      font-size: 32px;
+    }
+  }
+}
