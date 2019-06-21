@@ -34,7 +34,7 @@ In styles.scss
 ## Module
 [lazy-loading-ngmodules](https://angular.io/guide/lazy-loading-ngmodules)
 
-###Add new module
+### Add new module
 Home module eg
 In modules folder:
 

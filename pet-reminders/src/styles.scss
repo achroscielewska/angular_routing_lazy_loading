@@ -2,6 +2,20 @@
 @import '~@angular/material/theming';
 
 @include mat-core();
+// Available color palettes: https://material.io/design/color/
+$www-primary: mat-palette($mat-grey);
+$www-accent: mat-palette($mat-blue-gray, 900);
+
+// The warn palette is optional (defaults to red).
+$www-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$www-theme: mat-light-theme($www-primary, $www-accent, $www-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($www-theme);
 
 $roboto: mat-typography-config($font-family: 'Roboto');
 @include mat-select-typography($roboto);
@@ -34,6 +48,18 @@ body {
   }
 }
 
+.app-content {
+  margin: 10px;
+  .mat-card h1 {
+    text-align: center;
+    color: $warn-color;
+  }
+  .mat-card p {
+    color: $basic-color;
+  }
+
+}
+
 .app-primary-btn {
   background: $primary-color;
   color: $basic-color;
@@ -53,20 +79,30 @@ body {
 
 @media (min-width: $break-large) {
   .app-header-content, .app-content {
-    width: 50%;
+    width: 55%;
     margin: 0 auto;
     .app-header-title {
       font-size: 24px;
     }
   }
+
+  .app-content {
+    width: 50%;
+    margin: 10px auto;
+  }
 }
 
 @media (min-width: $break-extra-large) {
-  .app-header-content, .app-content {
-    width: 50%;
+  .app-header-content {
+    width: 55%;
     margin: 0 auto;
     .app-header-title {
       font-size: 24px;
     }
+  }
+
+  .app-content {
+    width: 50%;
+    margin: 10px auto;
   }
 }
