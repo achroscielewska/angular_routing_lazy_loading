@@ -1,4 +1,4 @@
-# PetReminders
+# PetCalendar
 
 Description TO_DO
 
@@ -29,9 +29,40 @@ In styles.scss
 @media (min-width: $break-large) {}
 @media (min-width: $break-extra-large) {}
 ```
-
 [color pallet](http://color.romanuke.com/tsvetovaya-palitra-2273/)
 
+## Module
+[lazy-loading-ngmodules](https://angular.io/guide/lazy-loading-ngmodules)
+
+###Add new module
+Home module eg
+In modules folder:
+
+* to create home module - `ng g module home --routing`
+* in home module, to create home component - `ng g c home --spec`
+* in home module, in `index.js` - add `export * from './home/home.component';`
+* in `home-routing.module.ts` file
+
+```javascript
+const routes: Routes = [
+  {
+      path: '',
+      redirectTo: '/home',
+      pathMatch: 'full'
+  },
+  {
+      path: 'home',
+      component: HomeComponent
+  },
+];
+```
+* in `app-routing.module.ts`
+
+```javascript
+const appRoutes: Routes = [
+  { path: '', loadChildren: './modules/home/home.module#HomeModule' },
+];
+```
 
 ## Development server
 
