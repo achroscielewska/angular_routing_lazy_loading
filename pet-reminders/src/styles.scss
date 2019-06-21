@@ -44,13 +44,15 @@ body {
     font-size: 18px;
   }
 }
+
 @media (min-width: $break-medium) {
   .app-header-title {
     font-size: 18px;
   }
 }
+
 @media (min-width: $break-large) {
-  .app-header-content {
+  .app-header-content, .app-content {
     width: 50%;
     margin: 0 auto;
     .app-header-title {
@@ -58,8 +60,9 @@ body {
     }
   }
 }
+
 @media (min-width: $break-extra-large) {
-  .app-header-content {
+  .app-header-content, .app-content {
     width: 50%;
     margin: 0 auto;
     .app-header-title {
