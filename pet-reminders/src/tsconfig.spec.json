@@ -14,5 +14,9 @@
   "include": [
     "**/*.spec.ts",
     "**/*.d.ts"
-  ]
+  ],
+  "paths": {
+    "@app/*": ["src/app/*"],
+    "@environments/*": ["src/environments/*"]
+  }
 }

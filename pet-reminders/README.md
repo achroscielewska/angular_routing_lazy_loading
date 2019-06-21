@@ -7,6 +7,28 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 * [Angular Material](https://material.angular.io/)
 
+## Angular Material
+In `app/modules/shared` angular-material.imports.ts was added with shared angular material imports.
+
+## Style
+Media configuration
+
+In `app/utilities` file _variables.scss
+```scss
+$break-small: 576px;
+$break-medium: 768px;
+$break-large: 960px;
+$break-extra-large: 1200px;
+```
+
+In styles.scss
+```scss
+@media (min-width: $break-small) {}
+@media (min-width: $break-medium) {}
+@media (min-width: $break-large) {}
+@media (min-width: $break-extra-large) {}
+```
+
 
 ## Development server
 
