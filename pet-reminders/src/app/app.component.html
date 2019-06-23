@@ -1,10 +1,20 @@
 <div class="app-header">
   <div class="app-header-content">
     <div class="app-header-title">
-      <span><b>{{ title }}</b></span>
+      <div class="app-icons">
+        <mat-icon aria-hidden="false" aria-label="calendar_today icon" class="app-main-icon">
+          calendar_today
+          <mat-icon aria-hidden="false" aria-label="pets icon" class="app-inside-icon">pets</mat-icon>
+        </mat-icon>
+
+      </div>
+      <div class="app-title-content">
+        <span>{{ pageTitle }}</span>
+      </div>
     </div>
     <div class="app-header-btns">
-      <button mat-raised-button class="app-primary-btn">LOG IN</button>
+      <button routerLink="./login" routerLinkActive="active" mat-raised-button class="app-primary-btn"
+        *ngIf="!isLoginPageActive" (click)="goToLoginPate()">LOG IN</button>
     </div>
   </div>
 </div>
