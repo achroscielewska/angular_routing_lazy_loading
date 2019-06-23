@@ -11,15 +11,15 @@ export class AppComponent implements OnInit {
   isLoginPageActive: boolean;
   pageTitle = 'PET CALENDAR';
 
-  constructor(private loginPageSarvice: LoginPageService ) { }
+  constructor(private loginPageService: LoginPageService ) { }
 
   ngOnInit() {
-    this.isLoginPageActive = this.loginPageSarvice.getLoginPageState();
+    this.loginPageService.getLoginPageState().subscribe(data =>
+      this.isLoginPageActive = data);
   }
 
-  goToLoginPate() {
-    this.loginPageSarvice.toggleLoginPageState();
-    this.isLoginPageActive = this.loginPageSarvice.getLoginPageState();
+  toggleLoginPage() {
+    this.loginPageService.toggleLoginPageState();
   }
 
 }

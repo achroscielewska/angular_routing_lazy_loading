@@ -10,7 +10,8 @@
     </mat-card-content>
     <mat-card-actions class="app-actions-btns">
       <button mat-raised-button class="app-primary-btn app-float-right">LOG IN</button>
-      <button mat-button class="app-float-right">CANCEL</button>
+      <button mat-button class="app-float-right" routerLink="../home"
+      routerLinkActive="active" (click)="toggleLoginPage()">CANCEL</button>
     </mat-card-actions>
   </mat-card>
 </div>

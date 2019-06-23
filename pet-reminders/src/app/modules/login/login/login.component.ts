@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginPageService } from 'src/app/shared/services/loginPage.service';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +10,13 @@ export class LoginComponent implements OnInit {
   loginComponentTitle = 'Log in';
   loginComponentDescription = 'Lorem ipsum dolor sit amet';
 
-  constructor() { }
+  constructor( private loginPageService: LoginPageService ) { }
 
   ngOnInit() {
+  }
+
+  toggleLoginPage() {
+    this.loginPageService.toggleLoginPageState();
   }
 
 }
