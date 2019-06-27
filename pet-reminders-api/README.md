@@ -4,18 +4,18 @@ Description TO_DO
 
 ## APP set up
 
-## Init node.js
+### Init node.js
 in empty folder run `npm init`
 
-## install following libraries
+### install following libraries
 * [express](https://www.npmjs.com/package/express)
 * [nodemon](https://www.npmjs.com/package/nodemon)
 * [body-parser](https://www.npmjs.com/package/body-parser) //https://stackoverflow.com/questions/38306569/what-does-body-parser-do-with-express
 
-## modify package.json file
+### modify package.json file
 put in `package.json` file `"start:server": "nodemon server.js"`
 
-## in environments folder
+### in environments folder
 add new file `environment.js`
 
 ```javascript
@@ -28,7 +28,7 @@ const environment = {
 module.exports = environment;
 ```
 
-## in app folder
+### in app folder
 add new file `app.js`
 
 ```javascript
@@ -61,7 +61,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 module.exports = app;
 ```
 
-## add server.js file
+### add server.js file
 
 ```javascript
 const app = require("./src/app/app");
@@ -117,3 +117,14 @@ server.on("error", onError);
 server.on("listening", onListening);
 server.listen(port);
 ```
+
+### run server
+`npm run start:server`
+
+The message "Connected to database!" should show up
+
+### if error occurs
+check if `main: index.js` line from package.js file was removed.
+
+##
+

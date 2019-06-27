@@ -4,6 +4,10 @@ const mongoose = require('mongoose');
 const environment = require('../environments/environment');
  
 const URL_DB = environment.db_url;
+
+const usersRoutes = require('./routes/users');
+
+const URL_API_USERS = '/api/users';
  
 const app = express();
  
@@ -23,5 +27,7 @@ app.use((req, res, next) => {
  
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(URL_API_USERS, usersRoutes);
  
 module.exports = app;
