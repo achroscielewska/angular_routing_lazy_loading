@@ -1,12 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const environment = require('../environments/environment');
- 
-const URL_DB = environment.db_url;
+const environment = require('../environments/environment'); 
 
 const usersRoutes = require('./routes/users');
 
+const URL_DB = environment.db_url;
 const URL_API_USERS = '/api/users';
  
 const app = express();

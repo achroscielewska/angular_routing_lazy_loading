@@ -126,5 +126,90 @@ The message "Connected to database!" should show up
 ### if error occurs
 check if `main: index.js` line from package.js file was removed.
 
-##
+## first API
+
+### model - mongoose.Schema
+[Schemas](https://mongoosejs.com/docs/guide.html)
+
+```javascript
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+ 
+const userSchema = new Schema({
+    login: {type: String, require: true, unique: true },
+    password: {type: String, require: true},
+    role: {type: String, require: true},
+});
+ 
+module.exports = mongoose.model('User', userSchema)
+```
+
+### route - express.Router()
+[API documentation](https://mongoosejs.com/docs/api.html)
+
+```javascript
+const express = require("express");
+const router = express.Router();
+const User = require("../model/user");
+
+// get user by login / password
+router.get("/:login" + "/:password", (req, res, next) => {
+  User.findOne({ login: req.params.login, password: req.params.password }).exec((err, user) => {
+    if (user) {
+      res.status(200).json(user);
+    } else {
+      res.status(404).json({ message: "User not found" });
+    }
+  });
+});
+
+// get all users
+router.get('', (req, res, next) => {
+    User.find()
+        .then(users => {
+            res.status(200).json(users);
+        });
+
+});
+module.exports = router;
+```
+
+### app.js
+
+```javascript
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const environment = require('../environments/environment'); 
+
+const usersRoutes = require('./routes/users'); //express router
+
+const URL_DB = environment.db_url;
+const URL_API_USERS = '/api/users'; //link to database
+ 
+const app = express();
+ 
+// connection to mongoDB
+mongoose
+    .connect(URL_DB, { useNewUrlParser: true })
+    .then(() => { console.log("Connected to database!"); })
+    .catch(() => { console.log("Connection to mongoDB failed!"); });
+ 
+// CORS configuration https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS')
+    next();
+})
+ 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(URL_API_USERS, usersRoutes); //app conection
+ 
+module.exports = app;
+```
+
+In browser `http://localhost:3000/api/users` - display all users from mongoDB.
 
