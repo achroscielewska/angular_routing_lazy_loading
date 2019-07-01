@@ -6,7 +6,7 @@ const User = require("../model/user");
 router.get("/:login" + "/:password", (req, res, next) => {
   User.findOne({ login: req.params.login, password: req.params.password }).exec((err, user) => {
     if (user) {
-      res.status(200).json(user);
+      res.status(200).json({user, token: 'fake-jwt-token'});
     } else {
       res.status(404).json({ message: "User not found" });
     }
